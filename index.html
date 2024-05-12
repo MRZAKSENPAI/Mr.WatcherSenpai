@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Watcher Senpai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 90%;
+            text-align: center;
+        }
+
+        #videoURL {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        video {
+            width: 100%;
+        }
+
+        .copyright {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .copyright a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                max-width: 100%;
+            }
+
+            button {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mr. Watcher Senpai</h1>
+        <input type="text" id="videoURL" placeholder="Enter video URL">
+        <button onclick="playVideo()">Play</button>
+        <video id="videoPlayer" controls>
+            Your browser does not support the video tag.
+        </video>
+        <button onclick="toggleDarkMode()">Dark Mode</button> 
+        <div class="copyright">
+            <p>Copyright &copy; <a href="https://www.facebook.com/Zarif.Kabbo42">Zarif</a></p>
+        </div>
+    </div>
+
+    <script>
+        function playVideo() {
+            var videoURL = document.getElementById("videoURL").value;
+            var videoPlayer = document.getElementById("videoPlayer");
+            videoPlayer.src = videoURL;
+            videoPlayer.play();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
